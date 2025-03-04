@@ -43,6 +43,9 @@ Teradata | ✅ | ✅ |
 - array data types are not always supported in the current version (except for pgcopy target)
 - spatial data types are not always supported between heterogenous rdbms.
 
+## Gui Wizard to generate command line
+[FastTransfer Wizard](FastTransfer_Wizard.html)
+
 ## Syntax:
 
 ![Syntax](diagram/Syntax.svg)
