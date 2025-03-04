@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="391" height="37">
+   <defs>
+      <style type="text/css">
+    @namespace "http://www.w3.org/2000/svg";
+    .line                 {fill: none; stroke: #181818; stroke-width: 1;}
+    .bold-line            {stroke: #F0F0F0; shape-rendering: crispEdges; stroke-width: 2;}
+    .thin-line            {stroke: #F0F0F0; shape-rendering: crispEdges}
+    .filled               {fill: #181818; stroke: none;}
+    text.terminal         {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #F0F0F0;
+                            font-weight: bold;
+                          }
+    text.nonterminal      {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #F0F0F0;
+                            font-weight: normal;
+                          }
+    text.regexp           {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #F0F0F0;
+                            font-weight: normal;
+                          }
+    rect, circle, polygon {fill: #181818; stroke: #181818;}
+    rect.terminal         {fill: #444444; stroke: #181818; stroke-width: 1;}
+    rect.nonterminal      {fill: #555555; stroke: #181818; stroke-width: 1;}
+    rect.text             {fill: none; stroke: none;}
+    polygon.regexp        {fill: #5D5D5D; stroke: #181818; stroke-width: 1;}
+  </style>
+   </defs>
+   <polygon points="9 17 1 13 1 21"/>
+   <polygon points="17 17 9 13 9 21"/>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+      xlink:href="#FastTransferCommand"
+      xlink:title="FastTransferCommand">
+      <rect x="31" y="3" width="164" height="32"/>
+      <rect x="29" y="1" width="164" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="39" y="21">FastTransferCommand</text>
+   </a>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+      xlink:href="#FastTransferOptions"
+      xlink:title="FastTransferOptions">
+      <rect x="215" y="3" width="148" height="32"/>
+      <rect x="213" y="1" width="148" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="223" y="21">FastTransferOptions</text>
+   </a>
+   <path class="line"
+         d="m17 17 h2 m0 0 h10 m164 0 h10 m0 0 h10 m148 0 h10 m3 0 h-3"/>
+   <polygon points="381 17 389 13 389 21"/>
+   <polygon points="381 17 373 13 373 21"/>
+</svg>

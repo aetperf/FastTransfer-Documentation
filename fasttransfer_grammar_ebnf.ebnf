@@ -1,0 +1,74 @@
+Syntax ::=
+    FastTransferCommand FastTransferOptions
+
+FastTransferCommand ::=
+    ( "'.\FastTransfer.exe'" | "'./fasttransfer'" )
+
+FastTransferOptions ::=
+    "--connectiontype" ConnectionType
+    SourceConnectionParameters
+    TargetConnectionParameters
+    SourceInfos
+    OutputInfos
+    (|AdvancedParameters)
+    (|LogParameters)
+
+
+ConnectionType ::=
+    ( "clickhouse"
+    | "duckdb"
+    | "hana"
+    | "mssql"
+    | "mysql"
+    | "nzsql"
+    | "odbc"
+    | "oledb"
+    | "oraodp"
+    | "pgcopy"
+    | "pgsql"
+    | "teradata"
+    )
+
+SourceConnectionParameters ::=
+    (( 
+      "--sourceserver"
+      ("Host"
+       | "Host:Port" | "Host\InstanceName" | "Host:Port/TNSService" ) 
+    (|"--sourceprovider" OLEDBProvider)
+      |("--sourcedsn" DSNName)
+    )
+    ( "--sourcetrusted"  | ( "--sourceuser" "Username" "--sourcepassword" "Password" ))
+      "--sourcedatabase" "Database")
+    
+  | ( "--sourceconnectstring" ConnectString )
+  
+
+TargetConnectionParameters ::=
+    (( 
+      "--targetserver"
+      ("Host"
+       | "Host:Port" | "Host\InstanceName" | "Host:Port/TNSService" ) 
+    )
+    ( "--targettrusted"  | ( "--targetuser" "Username" "--targetpassword" "Password" ))
+      "--targetdatabase" "Database")
+    
+  | ( "--targetconnectstring" ConnectString )
+
+
+SourceInfos ::=
+    ( "--fileinput" FilePath | "--query" Query |( "--sourceschema" SchemaName "--sourcetable" TableName))
+
+
+OutputInfos ::=
+     "--targetschema" SchemaName
+     "--targettable" TableName
+	 (|"--loadmode" ("Append" | "Truncate"))
+	 (|"--batchsize" "BatchSizeInt")
+
+AdvancedParameters ::=
+     "--method" ( "None"| ((("Random" | "DataDriven" | "RangeId" | "Ntile" ) "--distributeKeyColumn" "KeyColumn") | "Ctid" | "Rowid"  ) "--degree" Degree)
+
+LogParameters ::=
+    (|"--runid" RunId)
+    (|"--settingsfile" SettingsFile)
+

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1235" height="213">
+   <defs>
+      <style type="text/css">
+    @namespace "http://www.w3.org/2000/svg";
+    .line                 {fill: none; stroke: #181818; stroke-width: 1;}
+    .bold-line            {stroke: #F0F0F0; shape-rendering: crispEdges; stroke-width: 2;}
+    .thin-line            {stroke: #F0F0F0; shape-rendering: crispEdges}
+    .filled               {fill: #181818; stroke: none;}
+    text.terminal         {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #F0F0F0;
+                            font-weight: bold;
+                          }
+    text.nonterminal      {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #F0F0F0;
+                            font-weight: normal;
+                          }
+    text.regexp           {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #F0F0F0;
+                            font-weight: normal;
+                          }
+    rect, circle, polygon {fill: #181818; stroke: #181818;}
+    rect.terminal         {fill: #444444; stroke: #181818; stroke-width: 1;}
+    rect.nonterminal      {fill: #555555; stroke: #181818; stroke-width: 1;}
+    rect.text             {fill: none; stroke: none;}
+    polygon.regexp        {fill: #5D5D5D; stroke: #181818; stroke-width: 1;}
+  </style>
+   </defs>
+   <polygon points="9 17 1 13 1 21"/>
+   <polygon points="17 17 9 13 9 21"/>
+   <rect x="51" y="3" width="116" height="32" rx="10"/>
+   <rect x="49"
+         y="1"
+         width="116"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="59" y="21">--targetserver</text>
+   <rect x="207" y="3" width="50" height="32" rx="10"/>
+   <rect x="205"
+         y="1"
+         width="50"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="215" y="21">Host</text>
+   <rect x="207" y="47" width="84" height="32" rx="10"/>
+   <rect x="205"
+         y="45"
+         width="84"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="215" y="65">Host:Port</text>
+   <rect x="207" y="91" width="156" height="32" rx="10"/>
+   <rect x="205"
+         y="89"
+         width="156"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="215" y="109">Host\InstanceName</text>
+   <rect x="207" y="135" width="170" height="32" rx="10"/>
+   <rect x="205"
+         y="133"
+         width="170"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="215" y="153">Host:Port/TNSService</text>
+   <rect x="437" y="3" width="122" height="32" rx="10"/>
+   <rect x="435"
+         y="1"
+         width="122"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="445" y="21">--targettrusted</text>
+   <rect x="437" y="47" width="102" height="32" rx="10"/>
+   <rect x="435"
+         y="45"
+         width="102"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="445" y="65">--targetuser</text>
+   <rect x="559" y="47" width="88" height="32" rx="10"/>
+   <rect x="557"
+         y="45"
+         width="88"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="567" y="65">Username</text>
+   <rect x="667" y="47" width="138" height="32" rx="10"/>
+   <rect x="665"
+         y="45"
+         width="138"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="675" y="65">--targetpassword</text>
+   <rect x="825" y="47" width="86" height="32" rx="10"/>
+   <rect x="823"
+         y="45"
+         width="86"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="833" y="65">Password</text>
+   <rect x="951" y="3" width="134" height="32" rx="10"/>
+   <rect x="949"
+         y="1"
+         width="134"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="959" y="21">--targetdatabase</text>
+   <rect x="1105" y="3" width="82" height="32" rx="10"/>
+   <rect x="1103"
+         y="1"
+         width="82"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="1113" y="21">Database</text>
+   <rect x="51" y="179" width="164" height="32" rx="10"/>
+   <rect x="49"
+         y="177"
+         width="164"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="59" y="197">--targetconnectstring</text>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+      xlink:href="#ConnectString"
+      xlink:title="ConnectString">
+      <rect x="235" y="179" width="110" height="32"/>
+      <rect x="233" y="177" width="110" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="243" y="197">ConnectString</text>
+   </a>
+   <path class="line"
+         d="m17 17 h2 m20 0 h10 m116 0 h10 m20 0 h10 m50 0 h10 m0 0 h120 m-210 0 h20 m190 0 h20 m-230 0 q10 0 10 10 m210 0 q0 -10 10 -10 m-220 10 v24 m210 0 v-24 m-210 24 q0 10 10 10 m190 0 q10 0 10 -10 m-200 10 h10 m84 0 h10 m0 0 h86 m-200 -10 v20 m210 0 v-20 m-210 20 v24 m210 0 v-24 m-210 24 q0 10 10 10 m190 0 q10 0 10 -10 m-200 10 h10 m156 0 h10 m0 0 h14 m-200 -10 v20 m210 0 v-20 m-210 20 v24 m210 0 v-24 m-210 24 q0 10 10 10 m190 0 q10 0 10 -10 m-200 10 h10 m170 0 h10 m40 -132 h10 m122 0 h10 m0 0 h352 m-514 0 h20 m494 0 h20 m-534 0 q10 0 10 10 m514 0 q0 -10 10 -10 m-524 10 v24 m514 0 v-24 m-514 24 q0 10 10 10 m494 0 q10 0 10 -10 m-504 10 h10 m102 0 h10 m0 0 h10 m88 0 h10 m0 0 h10 m138 0 h10 m0 0 h10 m86 0 h10 m20 -44 h10 m134 0 h10 m0 0 h10 m82 0 h10 m-1176 0 h20 m1156 0 h20 m-1196 0 q10 0 10 10 m1176 0 q0 -10 10 -10 m-1186 10 v156 m1176 0 v-156 m-1176 156 q0 10 10 10 m1156 0 q10 0 10 -10 m-1166 10 h10 m164 0 h10 m0 0 h10 m110 0 h10 m0 0 h842 m23 -176 h-3"/>
+   <polygon points="1225 17 1233 13 1233 21"/>
+   <polygon points="1225 17 1217 13 1217 21"/>
+</svg>
