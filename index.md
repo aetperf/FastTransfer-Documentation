@@ -57,14 +57,23 @@ Teradata | ✅ | ✅ |
 ![FastTransferOptions](diagram/FastTransferOptions.svg)
 
 
-**ConnectionType:**
+**SourceConnectionType:**
 
-![ConnectionType](diagram/ConnectionType.svg)
+![SourceConnectionType](diagram/SourceConnectionType.svg)
 
 
 **SourceConnectionParameters:**
 
 ![SourceConnectionParameters](diagram/SourceConnectionParameters.svg)
+
+**SourceInfos:**
+
+![SourceInfos](diagram/SourceInfos.svg)
+
+
+**SourceConnectionType:**
+
+![TargetConnectionType](diagram/TargetConnectionType.svg)
 
 
 **TargetConnectionParameters:**
@@ -72,14 +81,9 @@ Teradata | ✅ | ✅ |
 ![TargetConnectionParameters](diagram/TargetConnectionParameters.svg)
 
 
-**SourceInfos:**
+**TargetInfos:**
 
-![SourceInfos](diagram/SourceInfos.svg)
-
-
-**OutputInfos:**
-
-![OutputInfos](diagram/OutputInfos.svg)
+![TargetInfos](diagram/TargetInfos.svg)
 
 
 **AdvancedParameters:**

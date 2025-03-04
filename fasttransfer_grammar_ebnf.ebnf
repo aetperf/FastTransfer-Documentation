@@ -5,16 +5,17 @@ FastTransferCommand ::=
     ( "'.\FastTransfer.exe'" | "'./fasttransfer'" )
 
 FastTransferOptions ::=
-    "--connectiontype" ConnectionType
+    "--sourceconnectiontype" SourceConnectionType
     SourceConnectionParameters
-    TargetConnectionParameters
     SourceInfos
-    OutputInfos
+    "--targetconnectiontype" TargetConnectionType
+    TargetConnectionParameters
+    TargetInfos
     (|AdvancedParameters)
     (|LogParameters)
 
 
-ConnectionType ::=
+SourceConnectionType ::=
     ( "clickhouse"
     | "duckdb"
     | "hana"
@@ -41,7 +42,24 @@ SourceConnectionParameters ::=
       "--sourcedatabase" "Database")
     
   | ( "--sourceconnectstring" ConnectString )
-  
+ 
+
+SourceInfos ::=
+    ( "--fileinput" FilePath | "--query" Query |( "--sourceschema" SchemaName "--sourcetable" TableName))
+ 
+ 
+TargetConnectionType ::=
+    ( "clickhousebulk"
+    | "duckdb"
+    | "hanabulk"
+    | "msbulk"
+    | "mysqlbulk"
+    | "nzbulk"
+    | "orabulk"
+    | "oradirect"
+    | "pgcopy"
+    | "teradata"
+    )
 
 TargetConnectionParameters ::=
     (( 
@@ -54,12 +72,7 @@ TargetConnectionParameters ::=
     
   | ( "--targetconnectstring" ConnectString )
 
-
-SourceInfos ::=
-    ( "--fileinput" FilePath | "--query" Query |( "--sourceschema" SchemaName "--sourcetable" TableName))
-
-
-OutputInfos ::=
+TargetInfos ::=
      "--targetschema" SchemaName
      "--targettable" TableName
 	 (|"--loadmode" ("Append" | "Truncate"))
