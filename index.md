@@ -354,6 +354,6 @@ You can start from the default file and modify it to suit your needs.
 
 Commercial License. Contact us at [sales@arpe.io](mailto:sales@arpe.io) for more information.
 
-[CLUF](legal/CONTRAT%20%DE%20%LICENCE%20%UTILISATEUR%20%FINAL.pdf)
+[CLUF](legal/CONTRAT%20DE%20LICENCE%20UTILISATEUR%20FINAL.pdf)
 
 
