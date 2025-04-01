@@ -11,7 +11,8 @@ FastTransferOptions ::=
     "--targetconnectiontype" TargetConnectionType
     TargetConnectionParameters
     TargetInfos
-    (|AdvancedParameters)
+    (|ParallelParameters)
+    (|MappingParameters)
     (|LogParameters)
 
 
@@ -78,10 +79,12 @@ TargetInfos ::=
 	 (|"--loadmode" ("Append" | "Truncate"))
 	 (|"--batchsize" "BatchSizeInt")
 
-AdvancedParameters ::=
-     "--method" ( "None"| ((("Random" | "DataDriven" | "RangeId" | "Ntile" ) "--distributeKeyColumn" "KeyColumn") | "Ctid" | "Rowid"  ) "--degree" Degree)
+ParallelParameters ::=
+    "--method" ( "None"| ((("Random" | "DataDriven" | "RangeId" | "Ntile" ) "--distributeKeyColumn" "KeyColumn") | "Ctid" | "Rowid"  ) "--degree" Degree)
+
+MappingParameters ::=
+ "--mapmethod" ("Position" | "Name")
 
 LogParameters ::=
     (|"--runid" RunId)
     (|"--settingsfile" SettingsFile)
-
