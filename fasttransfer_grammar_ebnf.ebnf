@@ -11,7 +11,8 @@ FastTransferOptions ::=
     "--targetconnectiontype" TargetConnectionType
     TargetConnectionParameters
     TargetInfos
-    (|AdvancedParameters)
+    (|ParallelParameters)
+    (|MappingParameters)
     (|LogParameters)
 
 
@@ -45,7 +46,7 @@ SourceConnectionParameters ::=
  
 
 SourceInfos ::=
-    ( "--fileinput" FilePath | "--query" Query |( "--sourceschema" SchemaName "--sourcetable" TableName))
+    (( "--sourceschema" SchemaName "--sourcetable" TableName) | ("--query" Query | "--query" Query "--sourceschema" SchemaName "--sourcetable" TableName)  | ("--fileinput" FilePath | "--fileinput" FilePath "--sourceschema" SchemaName "--sourcetable" TableName))
  
  
 TargetConnectionType ::=
@@ -78,10 +79,12 @@ TargetInfos ::=
 	 (|"--loadmode" ("Append" | "Truncate"))
 	 (|"--batchsize" "BatchSizeInt")
 
-AdvancedParameters ::=
-     "--method" ( "None"| ((("Random" | "DataDriven" | "RangeId" | "Ntile" ) "--distributeKeyColumn" "KeyColumn") | "Ctid" | "Rowid"  ) "--degree" Degree)
+ParallelParameters ::=
+    "--method" ( "None"| ((("Random" | "DataDriven" | "RangeId" | "Ntile" ) "--distributeKeyColumn" "KeyColumn") | "Ctid" | "Rowid"  ) "--degree" Degree)
+
+MappingParameters ::=
+ "--mapmethod" ("Position" | "Name")
 
 LogParameters ::=
     (|"--runid" RunId)
     (|"--settingsfile" SettingsFile)
-
