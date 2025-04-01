@@ -115,9 +115,14 @@ Teradata | ✅ | ✅ |
 ![TargetInfos](diagram/TargetInfos.svg)
 
 
-**AdvancedParameters:**
+**ParallelParameters:**
 
-![AdvancedParameters](diagram/AdvancedParameters.svg)
+![ParallelParameters](diagram/ParallelParameters.svg)
+
+
+**MappingParameters:**
+
+![MappingParameters](diagram/MappingParameters.svg)
 
 
 **LogParameters:**
@@ -266,7 +271,7 @@ Teradata | ✅ | ✅ |
     Override query to be used to get the values for the DataDriven method. You can avoid select distinct of the distributeKeyColumn on large table, if you have de reference table that contains all the values.
 
   - `-L`, `--loadmode <mode>`  
-    Load mode. 
+    Load mode of the data into the target. 
     Allowed Values: 
     - `Append` append data to the target table
     - `Truncate` truncate the target table before loading
@@ -278,6 +283,14 @@ Teradata | ✅ | ✅ |
 
   - `-W`, `--useworktables`  
     Swith that will activate the usage of intermediate work tables. Useful in some rare cases
+
+  - `-N`, `--mapmethod`  
+    mapping method for the columns between source and target.
+  Allowed Values: 
+    - `Position` : FastTransfer will map the columns by their position in the source and target tables
+    - `Name` : FastTransfer will map the columns by their name in the source and target tables (case insensitive) and will ignore missing columns (from source or target)
+    
+    Default Value: `Position`. 
 
   - `-R`, `--runid <RunSpanID>`  
     Run ID. coming from the caller. It will be used to allow tracing of the process. Default is a random Guid.  
@@ -337,10 +350,6 @@ Teradata | ✅ | ✅ |
 
 
 for more examples see [examples](./samples/samples.md)
-
-
-
-
 
 ## Installation
 

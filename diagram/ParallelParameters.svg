@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="871" height="301">
+   <defs>
+      <style type="text/css">
+    @namespace "http://www.w3.org/2000/svg";
+    .line                 {fill: none; stroke: #181818; stroke-width: 1;}
+    .bold-line            {stroke: #F0F0F0; shape-rendering: crispEdges; stroke-width: 2;}
+    .thin-line            {stroke: #F0F0F0; shape-rendering: crispEdges}
+    .filled               {fill: #181818; stroke: none;}
+    text.terminal         {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #F0F0F0;
+                            font-weight: bold;
+                          }
+    text.nonterminal      {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #F0F0F0;
+                            font-weight: normal;
+                          }
+    text.regexp           {font-family: Verdana, Sans-serif;
+                            font-size: 12px;
+                            fill: #F0F0F0;
+                            font-weight: normal;
+                          }
+    rect, circle, polygon {fill: #181818; stroke: #181818;}
+    rect.terminal         {fill: #444444; stroke: #181818; stroke-width: 1;}
+    rect.nonterminal      {fill: #555555; stroke: #181818; stroke-width: 1;}
+    rect.text             {fill: none; stroke: none;}
+    polygon.regexp        {fill: #5D5D5D; stroke: #181818; stroke-width: 1;}
+  </style>
+   </defs>
+   <polygon points="9 17 1 13 1 21"/>
+   <polygon points="17 17 9 13 9 21"/>
+   <rect x="31" y="3" width="82" height="32" rx="10"/>
+   <rect x="29"
+         y="1"
+         width="82"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="39" y="21">--method</text>
+   <rect x="153" y="3" width="54" height="32" rx="10"/>
+   <rect x="151"
+         y="1"
+         width="54"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="161" y="21">None</text>
+   <rect x="193" y="47" width="74" height="32" rx="10"/>
+   <rect x="191"
+         y="45"
+         width="74"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="201" y="65">Random</text>
+   <rect x="193" y="91" width="96" height="32" rx="10"/>
+   <rect x="191"
+         y="89"
+         width="96"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="201" y="109">DataDriven</text>
+   <rect x="193" y="135" width="76" height="32" rx="10"/>
+   <rect x="191"
+         y="133"
+         width="76"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="201" y="153">RangeId</text>
+   <rect x="193" y="179" width="52" height="32" rx="10"/>
+   <rect x="191"
+         y="177"
+         width="52"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="201" y="197">Ntile</text>
+   <rect x="329" y="47" width="174" height="32" rx="10"/>
+   <rect x="327"
+         y="45"
+         width="174"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="337" y="65">--distributeKeyColumn</text>
+   <rect x="523" y="47" width="96" height="32" rx="10"/>
+   <rect x="521"
+         y="45"
+         width="96"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="531" y="65">KeyColumn</text>
+   <rect x="173" y="223" width="46" height="32" rx="10"/>
+   <rect x="171"
+         y="221"
+         width="46"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="181" y="241">Ctid</text>
+   <rect x="173" y="267" width="62" height="32" rx="10"/>
+   <rect x="171"
+         y="265"
+         width="62"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="181" y="285">Rowid</text>
+   <rect x="659" y="47" width="78" height="32" rx="10"/>
+   <rect x="657"
+         y="45"
+         width="78"
+         height="32"
+         class="terminal"
+         rx="10"/>
+   <text class="terminal" x="667" y="65">--degree</text>
+   <a xmlns:xlink="http://www.w3.org/1999/xlink"
+      xlink:href="#Degree"
+      xlink:title="Degree">
+      <rect x="757" y="47" width="66" height="32"/>
+      <rect x="755" y="45" width="66" height="32" class="nonterminal"/>
+      <text class="nonterminal" x="765" y="65">Degree</text>
+   </a>
+   <path class="line"
+         d="m17 17 h2 m0 0 h10 m82 0 h10 m20 0 h10 m54 0 h10 m0 0 h616 m-710 0 h20 m690 0 h20 m-730 0 q10 0 10 10 m710 0 q0 -10 10 -10 m-720 10 v24 m710 0 v-24 m-710 24 q0 10 10 10 m690 0 q10 0 10 -10 m-660 10 h10 m74 0 h10 m0 0 h22 m-136 0 h20 m116 0 h20 m-156 0 q10 0 10 10 m136 0 q0 -10 10 -10 m-146 10 v24 m136 0 v-24 m-136 24 q0 10 10 10 m116 0 q10 0 10 -10 m-126 10 h10 m96 0 h10 m-126 -10 v20 m136 0 v-20 m-136 20 v24 m136 0 v-24 m-136 24 q0 10 10 10 m116 0 q10 0 10 -10 m-126 10 h10 m76 0 h10 m0 0 h20 m-126 -10 v20 m136 0 v-20 m-136 20 v24 m136 0 v-24 m-136 24 q0 10 10 10 m116 0 q10 0 10 -10 m-126 10 h10 m52 0 h10 m0 0 h44 m20 -132 h10 m174 0 h10 m0 0 h10 m96 0 h10 m-486 0 h20 m466 0 h20 m-506 0 q10 0 10 10 m486 0 q0 -10 10 -10 m-496 10 v156 m486 0 v-156 m-486 156 q0 10 10 10 m466 0 q10 0 10 -10 m-476 10 h10 m46 0 h10 m0 0 h400 m-476 -10 v20 m486 0 v-20 m-486 20 v24 m486 0 v-24 m-486 24 q0 10 10 10 m466 0 q10 0 10 -10 m-476 10 h10 m62 0 h10 m0 0 h384 m20 -220 h10 m78 0 h10 m0 0 h10 m66 0 h10 m23 -44 h-3"/>
+   <polygon points="861 17 869 13 869 21"/>
+   <polygon points="861 17 853 13 853 21"/>
+</svg>
