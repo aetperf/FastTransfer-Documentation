@@ -46,7 +46,7 @@ SourceConnectionParameters ::=
  
 
 SourceInfos ::=
-    ( "--fileinput" FilePath | "--query" Query |( "--sourceschema" SchemaName "--sourcetable" TableName))
+    (( "--sourceschema" SchemaName "--sourcetable" TableName) | ("--query" Query | "--query" Query "--sourceschema" SchemaName "--sourcetable" TableName)  | ("--fileinput" FilePath | "--fileinput" FilePath "--sourceschema" SchemaName "--sourcetable" TableName))
  
  
 TargetConnectionType ::=
