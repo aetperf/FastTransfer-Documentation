@@ -383,7 +383,11 @@ You can start from the default file and modify it to suit your needs.
     ],
     "MinimumLevel": "Debug",
 ```
+## Wrappers
+FastTransfer is also available using wrappers.
+One fully fonctionnal and supported wrapper is available for TSQL using a CLR procedure that avoid using xp_cmdshell.
 
+- [CLR/TSQL Wrapper](https://github.com/aetperf/FastWrappers-TSQL)
 
 ## License
 
