@@ -68,6 +68,8 @@ Teradata | ✅ | ✅ |
 
 - array data types are not always supported in the current version (except for pgcopy target)
 - spatial data types are not always supported between heterogenous rdbms.
+- TARGET TABLE MUST exist.
+- target table must have columns with compatibles datatypes with the source and aligned if mapmethod *position* is used.
 
 ## Gui Wizard to generate command line
 [FastTransfer Wizard](FastTransfer_Wizard.html)
