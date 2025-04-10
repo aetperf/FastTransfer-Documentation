@@ -284,78 +284,91 @@
       </tr>
     </thead>
     <tbody>
-      <!-- degree -->
-      <tr id="tr-degree">
-        <td>Parallel Degree</td>
-        <td><input type="number" id="degree" value="-2" min="-32" max="1024" oninput="updateCommand()"></td>
-        <td>--degree</td>
-        <td>-2</td>
-      </tr>
+        <!-- degree -->
+        <tr id="tr-degree">
+            <td>Parallel Degree</td>
+            <td><input type="number" id="degree" value="-2" min="-32" max="1024" oninput="updateCommand()"></td>
+            <td>--degree</td>
+            <td>-2</td>
+        </tr>
 
-      <!-- method -->
-      <tr>
-        <td>Method</td>
-        <td>
-          <select id="method" onchange="onMethodChange(); updateCommand()">
-            <option value="None">None</option>
-            <option value="Ctid">Ctid (PostgreSQL Only)</option>            
-            <option value="DataDriven">DataDriven</option>
-            <option value="Ntile">Ntile</option>
-            <option value="NZDataSlice">NZDataSlice (Netezza Only)</option>
-            <option value="Random">Random</option>
-            <option value="RangeId">RangeId</option>
-            <option value="Rowid">Rowid (Oracle Only)</option>
-          </select>
-        </td>
-        <td>--method</td>
-        <td>None</td>
-      </tr>
+        <!-- method -->
+        <tr>
+            <td>Method</td>
+            <td>
+                <select id="method" onchange="onMethodChange(); updateCommand()">
+                    <option value="None">None</option>
+                    <option value="Ctid">Ctid (PostgreSQL Only)</option>
+                    <option value="DataDriven">DataDriven</option>
+                    <option value="Ntile">Ntile</option>
+                    <option value="NZDataSlice">NZDataSlice (Netezza Only)</option>
+                    <option value="Random">Random</option>
+                    <option value="RangeId">RangeId</option>
+                    <option value="Rowid">Rowid (Oracle Only)</option>
+                </select>
+            </td>
+            <td>--method</td>
+            <td>None</td>
+        </tr>
 
-      <!-- distributeKeyColumn -->
-      <tr id="tr-distributeKeyColumn">
-        <td>Distribute Key Column</td>
-        <td><input type="text" id="distributeKeyColumn" oninput="updateCommand()"></td>
-        <td>--distributeKeyColumn</td>
-        <td>[none]</td>
-      </tr>
+        <!-- distributeKeyColumn -->
+        <tr id="tr-distributeKeyColumn">
+            <td>Distribute Key Column</td>
+            <td><input type="text" id="distributeKeyColumn" oninput="updateCommand()"></td>
+            <td>--distributeKeyColumn</td>
+            <td>[none]</td>
+        </tr>
 
-      <!-- datadrivenquery -->
-      <tr id="tr-datadrivenquery">
-        <td>DataDriven Query (optionnal)</td>
-        <td><input type="text" id="datadrivenquery" oninput="updateCommand()"></td>
-        <td>--datadrivenquery</td>
-        <td>[none]</td>
-      </tr>
+        <!-- datadrivenquery -->
+        <tr id="tr-datadrivenquery">
+            <td>DataDriven Query (optionnal)</td>
+            <td><input type="text" id="datadrivenquery" oninput="updateCommand()"></td>
+            <td>--datadrivenquery</td>
+            <td>[none]</td>
+        </tr>
 
-      <!-- loadmode -->
-      <tr>
-        <td>Load Mode</td>
-        <td>
-          <select id="loadmode" onchange="updateCommand()">
-            <option value="Append">Append</option>
-            <option value="Truncate">Truncate</option>
-            <!-- <option value="Replace">Replace</option> -->
-          </select>
-        </td>
-        <td>--loadmode</td>
-        <td>Append</td>
-      </tr>
+        <!-- loadmode -->
+        <tr>
+            <td>Load Mode</td>
+            <td>
+                <select id="loadmode" onchange="updateCommand()">
+                    <option value="Append">Append</option>
+                    <option value="Truncate">Truncate</option>
+                    <!-- <option value="Replace">Replace</option> -->
+                </select>
+            </td>
+            <td>--loadmode</td>
+            <td>Append</td>
+        </tr>
 
-      <!-- batchsize -->
-      <tr>
-        <td>Batch Size</td>
-        <td><input type="number" id="batchsize" value="1048576" oninput="updateCommand()"></td>
-        <td>--batchsize</td>
-        <td>1048576</td>
-      </tr>
+        <!-- mapmethod -->
+        <tr>
+            <td>Column Map Method</td>
+            <td>
+                <select id="mapmethod" onchange="updateCommand()">
+                    <option value="Position">Position</option>
+                    <option value="Name">Name</option>
+                </select>
+            </td>
+            <td>--mapmethod</td>
+            <td>Position</td>
+        </tr>
 
-      <!-- useworktables -->
-      <tr>
-        <td>Use Work Tables?</td>
-        <td><input type="checkbox" id="useworktables" onchange="updateCommand()"></td>
-        <td>--useworktables</td>
-        <td>false</td>
-      </tr>
+        <!-- batchsize -->
+        <tr>
+            <td>Batch Size</td>
+            <td><input type="number" id="batchsize" value="1048576" oninput="updateCommand()"></td>
+            <td>--batchsize</td>
+            <td>1048576</td>
+        </tr>
+
+        <!-- useworktables -->
+        <tr>
+            <td>Use Work Tables?</td>
+            <td><input type="checkbox" id="useworktables" onchange="updateCommand()"></td>
+            <td>--useworktables</td>
+            <td>false</td>
+        </tr>
     </tbody>
 </table>
 
@@ -660,7 +673,7 @@ function updateCommand() {
   const method = document.getElementById('method').value;
   if (method) {
     args.push(` --method "${method}"`);
-  }
+    }  
 
   // distributeKeyColumn (only if row is visible, or always?)
   if (document.getElementById('tr-distributeKeyColumn').style.display !== 'none') {
@@ -682,6 +695,12 @@ function updateCommand() {
   const loadmode = document.getElementById('loadmode').value;
   if (loadmode) {
     args.push(` --loadmode "${loadmode}"`);
+    }
+
+  // mapmethod
+  const method = document.getElementById('mapmethod').value;
+  if (mapmethod) {
+      args.push(` --mapmethod "${mapmethod}"`);
   }
 
   // batchsize

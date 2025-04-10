@@ -348,7 +348,8 @@ Teradata | ✅ | ✅ |
 --method "Ctid" ` # Ctid is for pgsql and pgcopy source only 
 --loadmode "Truncate" `
 --degree -2 `  #Automatically adapt the degree of parallelism to 1/2 of cpu available
---runid "pgsql-to-msbulk-123456"
+--runid "pgsql-to-msbulk-123456" `
+--mapmethod "Name" 
 ```
 
 
