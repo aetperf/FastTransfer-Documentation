@@ -511,9 +511,8 @@ function onMethodChange() {
     document.getElementById('tr-datadrivenquery').style.display = 'none';
     // Hide degree
     document.getElementById('degree').value = "";
-
-
-  } else 
+  }
+  else 
   {
     // Show degree
     document.getElementById('tr-degree').style.display = 'table-row';
@@ -698,7 +697,7 @@ function updateCommand() {
     }
 
   // mapmethod
-  const method = document.getElementById('mapmethod').value;
+  const mapmethod = document.getElementById('mapmethod').value;
   if (mapmethod) {
       args.push(` --mapmethod "${mapmethod}"`);
   }
@@ -731,8 +730,7 @@ function updateCommand() {
   let cmd = baseCmd;
   if (args.length > 0) {
     cmd += " " + args.join(" ");
-  }
-  
+  }  
 
   // Display
   document.getElementById('result').textContent = cmd;
