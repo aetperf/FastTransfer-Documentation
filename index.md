@@ -395,7 +395,7 @@ One fully fonctionnal and supported wrapper is available for TSQL using a CLR pr
 
 ## License
 
-Commercial License. Contact us at [sales@arpe.io](mailto:sales@arpe.io) for more information.
+Commercial License. Contact us at [sales@architecture-performance.fr](mailto:sales@architecture-performance.fr) for more information.
 
 [CLUF](legal/CONTRAT%20DE%20LICENCE%20UTILISATEUR%20FINAL.pdf)
 
