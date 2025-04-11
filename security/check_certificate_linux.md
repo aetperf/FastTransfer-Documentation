@@ -1,4 +1,4 @@
-## Linux authenticity check
+## Verifying FastTransfer Linux Binary Integrity and Authenticity
 
 The zip file contains 3 files:
 - `FastTransfer`
