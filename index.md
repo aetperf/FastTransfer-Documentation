@@ -365,7 +365,7 @@ That's it! You are ready to use FastTransfer.
 FastTransfer uses a settings file to configure the logging.
 The default file is `FastTransfer_settings.json` in the same folder as the executable. You can specify a custom file using the `-O` option.
 
-You can download the [FastTransfer_settings.json template](FastTransfer_settings.json) to get started. The default file is already configured to use the SQL Server database for logging. You can also use the console and file sinks for logging.
+You can download the [FastTransfer_settings.json template](./FastTransfer_Settings.json) to get started. The default file is already configured to use the SQL Server database for logging. You can also use the console and file sinks for logging.
 
 You can start from the default file and modify it to suit your needs.
 
