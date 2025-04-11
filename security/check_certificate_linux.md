@@ -10,17 +10,20 @@ To check the integrity of your `FastTransfer` file, generate its SHA256 sum and 
 ```bash
 sha256sum -b FastTransfer
 ```
+
 	d0e9b29b447da1e8aa946d0fcfe31a8e60d8411c5aad791439d3356e07ade907 *FastTransfer
 
 ```bash
 cat FastTransfer.sha256sum.txt
 ```
+
 	D0E9B29B447DA1E8AA946D0FCFE31A8E60D8411C5AAD791439D3356E07ADE907  FastTransfer%    
 
-Or you can verify its integrity of a file using a single command:
+Or you can verify its integrity using a single command:
 ```bash
 sha256sum -c FastTransfer.sha256sum.txt
 ```
+
 	FastTransfer: OK
 
 ### Authenticity check
