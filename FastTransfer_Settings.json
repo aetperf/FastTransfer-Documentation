@@ -12,7 +12,7 @@
       "Serilog.Enrichers.Process",
       "Serilog.Enrichers.Context"
     ],
-    "MinimumLevel": "Verbose",
+    "MinimumLevel": "Debug",
     "WriteTo": [
       {
         "Name": "Console",
