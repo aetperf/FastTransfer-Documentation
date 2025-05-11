@@ -273,143 +273,168 @@
 
 <!--  =================== ADVANCED / PARALLEL SECTION  =================== -->
 <div class="section">
-  <h2>Advanced / Parallel</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Short Description</th>
-        <th>Value</th>
-        <th>Parameter</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <!-- degree -->
-        <tr id="tr-degree">
-            <td>Parallel Degree</td>
-            <td><input type="number" id="degree" value="-2" min="-32" max="1024" oninput="updateCommand()"></td>
-            <td>--degree</td>
-            <td>-2</td>
-        </tr>
-
-        <!-- method -->
-        <tr>
-            <td>Method</td>
-            <td>
-                <select id="method" onchange="onMethodChange(); updateCommand()">
-                    <option value="None">None</option>
-                    <option value="Ctid">Ctid (PostgreSQL Only)</option>
-                    <option value="DataDriven">DataDriven</option>
-                    <option value="Ntile">Ntile</option>
-                    <option value="NZDataSlice">NZDataSlice (Netezza Only)</option>
-                    <option value="Random">Random</option>
-                    <option value="RangeId">RangeId</option>
-                    <option value="Rowid">Rowid (Oracle Only)</option>
-                </select>
-            </td>
-            <td>--method</td>
-            <td>None</td>
-        </tr>
-
-        <!-- distributeKeyColumn -->
-        <tr id="tr-distributeKeyColumn">
-            <td>Distribute Key Column</td>
-            <td><input type="text" id="distributeKeyColumn" oninput="updateCommand()"></td>
-            <td>--distributeKeyColumn</td>
-            <td>[none]</td>
-        </tr>
-
-        <!-- datadrivenquery -->
-        <tr id="tr-datadrivenquery">
-            <td>DataDriven Query (optionnal)</td>
-            <td><input type="text" id="datadrivenquery" oninput="updateCommand()"></td>
-            <td>--datadrivenquery</td>
-            <td>[none]</td>
-        </tr>
-
-        <!-- loadmode -->
-        <tr>
-            <td>Load Mode</td>
-            <td>
-                <select id="loadmode" onchange="updateCommand()">
-                    <option value="Append">Append</option>
-                    <option value="Truncate">Truncate</option>
-                    <!-- <option value="Replace">Replace</option> -->
-                </select>
-            </td>
-            <td>--loadmode</td>
-            <td>Append</td>
-        </tr>
-
-        <!-- mapmethod -->
-        <tr>
-            <td>Column Map Method</td>
-            <td>
-                <select id="mapmethod" onchange="updateCommand()">
-                    <option value="Position">Position</option>
-                    <option value="Name">Name</option>
-                </select>
-            </td>
-            <td>--mapmethod</td>
-            <td>Position</td>
-        </tr>
-
-        <!-- batchsize -->
-        <tr>
-            <td>Batch Size</td>
-            <td><input type="number" id="batchsize" value="1048576" oninput="updateCommand()"></td>
-            <td>--batchsize</td>
-            <td>1048576</td>
-        </tr>
-
-        <!-- useworktables -->
-        <tr>
-            <td>Use Work Tables?</td>
-            <td><input type="checkbox" id="useworktables" onchange="updateCommand()"></td>
-            <td>--useworktables</td>
-            <td>false</td>
-        </tr>
-    </tbody>
-</table>
-
-      <!--  =================== LOGGING SECTION  =================== -->
-<div class="section">
-    <h2>Logging</h2>
+    <h2>Advanced / Parallel</h2>
     <table>
-      <thead>
-        <tr>
-          <th>Short Description</th>
-          <th>Value</th>
-          <th>Parameter</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-      <!-- runid -->
-      <tr>
-        <td>Run ID</td>
-        <td><input type="text" id="runid" oninput="updateCommand()"></td>
-        <td>--runid</td>
-        <td>[none]</td>
-      </tr>
+        <thead>
+            <tr>
+                <th>Short Description</th>
+                <th>Value</th>
+                <th>Parameter</th>
+                <th>Default</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- degree -->
+            <tr id="tr-degree">
+                <td>Parallel Degree</td>
+                <td><input type="number" id="degree" value="-2" min="-32" max="1024" oninput="updateCommand()"></td>
+                <td>--degree</td>
+                <td>-2</td>
+            </tr>
 
-      <!-- settingsfile -->
-      <tr>
-        <td>Settings File</td>
-        <td><input type="text" id="settingsfile" oninput="updateCommand()"></td>
-        <td>--settingsfile</td>
-        <td>[none]</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+            <!-- method -->
+            <tr>
+                <td>Method</td>
+                <td>
+                    <select id="method" onchange="onMethodChange(); updateCommand()">
+                        <option value="None">None</option>
+                        <option value="Ctid">Ctid (PostgreSQL Only)</option>
+                        <option value="DataDriven">DataDriven</option>
+                        <option value="Ntile">Ntile</option>
+                        <option value="NZDataSlice">NZDataSlice (Netezza Only)</option>
+                        <option value="Random">Random</option>
+                        <option value="RangeId">RangeId</option>
+                        <option value="Rowid">Rowid (Oracle Only)</option>
+                    </select>
+                </td>
+                <td>--method</td>
+                <td>None</td>
+            </tr>
 
-<!--  =================== COMMAND OUTPUT  =================== -->
-<button type="button" onclick="copyCommand()">Copy Command</button>
-<button type="button" onclick="updateCommand()">Refresh</button>
+            <!-- distributeKeyColumn -->
+            <tr id="tr-distributeKeyColumn">
+                <td>Distribute Key Column</td>
+                <td><input type="text" id="distributeKeyColumn" oninput="updateCommand()"></td>
+                <td>--distributeKeyColumn</td>
+                <td>[none]</td>
+            </tr>
+
+            <!-- datadrivenquery -->
+            <tr id="tr-datadrivenquery">
+                <td>DataDriven Query (optionnal)</td>
+                <td><input type="text" id="datadrivenquery" oninput="updateCommand()"></td>
+                <td>--datadrivenquery</td>
+                <td>[none]</td>
+            </tr>
+
+            <!-- loadmode -->
+            <tr>
+                <td>Load Mode</td>
+                <td>
+                    <select id="loadmode" onchange="updateCommand()">
+                        <option value="Append">Append</option>
+                        <option value="Truncate">Truncate</option>
+                        <!-- <option value="Replace">Replace</option> -->
+                    </select>
+                </td>
+                <td>--loadmode</td>
+                <td>Append</td>
+            </tr>
+
+            <!-- mapmethod -->
+            <tr>
+                <td>Column Map Method</td>
+                <td>
+                    <select id="mapmethod" onchange="updateCommand()">
+                        <option value="Position">Position</option>
+                        <option value="Name">Name</option>
+                    </select>
+                </td>
+                <td>--mapmethod</td>
+                <td>Position</td>
+            </tr>
+
+            <!-- batchsize -->
+            <tr>
+                <td>Batch Size</td>
+                <td><input type="number" id="batchsize" value="1048576" oninput="updateCommand()"></td>
+                <td>--batchsize</td>
+                <td>1048576</td>
+            </tr>
+
+            <!-- useworktables -->
+            <tr>
+                <td>Use Work Tables?</td>
+                <td><input type="checkbox" id="useworktables" onchange="updateCommand()"></td>
+                <td>--useworktables</td>
+                <td>false</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--  =================== LOGGING SECTION  =================== -->
+    <div class="section">
+        <h2>Logging</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Short Description</th>
+                    <th>Value</th>
+                    <th>Parameter</th>
+                    <th>Default</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- runid -->
+                <tr>
+                    <td>Run ID</td>
+                    <td><input type="text" id="runid" oninput="updateCommand()"></td>
+                    <td>--runid</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- settingsfile -->
+                <tr>
+                    <td>Settings File</td>
+                    <td><input type="text" id="settingsfile" oninput="updateCommand()"></td>
+                    <td>--settingsfile</td>
+                    <td>[none]</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--  =================== LICENCE SECTION  =================== -->
+    <div class="section">
+        <h2>Licence</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Short Description</th>
+                    <th>Value</th>
+                    <th>Parameter</th>
+                    <th>Default</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- licence -->
+                <tr>
+                    <td>Licence</td>
+                    <td><input type="text" id="licence" oninput="updateCommand()"></td>
+                    <td>--licence</td>
+                    <td>[none] if not provided, will use FastTransfer.lic</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!--  =================== COMMAND OUTPUT  =================== -->
+    <button type="button" onclick="copyCommand()">Copy Command</button>
+    <button type="button" onclick="updateCommand()">Refresh</button>
 <pre id="result"></pre>
 
-<script>
+    <script>
 /* --- Show/hide logic for partial group constraints, etc. --- */
 
 // If sourceconnectstring is used => hide DSN/provider/server/trusted
@@ -512,7 +537,7 @@ function onMethodChange() {
     // Hide degree
     document.getElementById('degree').value = "";
   }
-  else 
+  else
   {
     // Show degree
     document.getElementById('tr-degree').style.display = 'table-row';
@@ -536,7 +561,7 @@ function onMethodChange() {
     }
    }
 
-  
+
   updateCommand();
 }
 
@@ -672,7 +697,7 @@ function updateCommand() {
   const method = document.getElementById('method').value;
   if (method) {
     args.push(` --method "${method}"`);
-    }  
+    }
 
   // distributeKeyColumn (only if row is visible, or always?)
   if (document.getElementById('tr-distributeKeyColumn').style.display !== 'none') {
@@ -726,11 +751,17 @@ function updateCommand() {
     args.push(` --settingsfile "${sfile}"`);
   }
 
+  // licence
+  const licence = document.getElementById('licence').value.trim();
+  if (licence) {
+    args.push(` --licence "${licence}"`);
+  }
+
   // Build final command
   let cmd = baseCmd;
   if (args.length > 0) {
     cmd += " " + args.join(" ");
-  }  
+  }
 
   // Display
   document.getElementById('result').textContent = cmd;
@@ -784,7 +815,7 @@ function onSourceTypeChange(){
 
 initDisplayStates();
 updateCommand();
-</script>
+    </script>
 
 </body>
 </html>
