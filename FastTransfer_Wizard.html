@@ -8,373 +8,21 @@
 </head>
 <body>
 
-<h1>FastTransfer Command Line Wizard</h1>
-<h2>Set parameters and collect the built command line at the bottom of the page</h2>
+    <h1>FastTransfer Command Line Wizard</h1>
+    <h2>Set parameters and collect the built command line at the bottom of the page</h2>
 
-<!-- Platform (Windows or Linux) -->
-<label for="platform">Platform:</label>
-<select id="platform" onchange="updateCommand()">
-  <option value="windows">Windows (FastTransfer.exe)</option>
-  <option value="linux">Linux (FastTransfer)</option>
-</select>
+    <!-- Platform (Windows or Linux) -->
+    <label for="platform">Platform:</label>
+    <select id="platform" onchange="updateCommand()">
+        <option value="windows">Windows (FastTransfer.exe)</option>
+        <option value="linux">Linux (FastTransfer)</option>
+    </select>
 
 
 
-<!--  =================== SOURCE SECTION  =================== -->
-<div class="section">
-  <h2>Source Configuration</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Short Description</th>
-        <th>Value</th>
-        <th>Parameter</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- sourceconnectiontype -->
-      <tr>
-        <td>Source Conn. Type</td>
-        <td>
-          <select id="sourceconnectiontype" onchange="onSourceTypeChange(); updateCommand()">
-            <option value="">-- choose --</option>
-            <option value="clickhouse">clickhouse</option>
-            <option value="duckdb">duckdb</option>
-            <option value="duckdbstream">duckdbstream</option>
-            <option value="hana">hana</option>
-            <option value="mssql">mssql</option>
-            <option value="msoledbsql">msoledbsql</option>
-            <option value="mysql">mysql</option>
-            <option value="nzoledb">nzoledb</option>
-            <option value="nzsql">nzsql</option>
-            <option value="odbc">odbc</option>
-            <option value="oledb">oledb</option>
-            <option value="oraodp">oraodp</option>
-            <option value="pgcopy">pgcopy</option>            
-            <option value="pgsql">pgsql</option>
-            <option value="teradata">teradata</option>
-          </select>
-        </td>
-        <td>--sourceconnectiontype</td>
-        <td>[none]</td>
-      </tr>
-
-      <!-- sourceconnectstring vs (sourcedsn, sourceprovider, sourceserver, sourceuser, sourcepassword, sourcetrusted) -->
-      <tr id="tr-sourceconnectstring">
-        <td>Source Connect String</td>
-        <td><input type="text" id="sourceconnectstring" oninput="onSourceConnectstringChange(); updateCommand()"></td>
-        <td>--sourceconnectstring</td>
-        <td>[none]</td>
-      </tr>
-
-      <!-- sourcedsn (only if not using sourceconnectstring) -->
-      <tr id="tr-sourcedsn">
-        <td>ODBC DSN</td>
-        <td><input type="text" id="sourcedsn" oninput="updateCommand()"></td>
-        <td>--sourcedsn</td>
-        <td>[none]</td>
-      </tr>
-
-      <!-- sourceprovider (only if not using sourceconnectstring nor sourcedsn) -->
-      <tr id="tr-sourceprovider">
-        <td>OleDB Provider</td>
-        <td><input type="text" id="sourceprovider" oninput="updateCommand()"></td>
-        <td>--sourceprovider</td>
-        <td>[none]</td>
-      </tr>
-
-      <!-- sourceserver (only if not using sourceconnectstring nor sourcedsn) -->
-      <tr id="tr-sourceserver">
-        <td>Source Server</td>
-        <td><input type="text" id="sourceserver" oninput="updateCommand()"></td>
-        <td>--sourceserver</td>
-        <td>[none]</td>
-      </tr>
-
-      <!-- sourcetrusted vs (sourceuser, sourcepassword) -->
-      <tr id="tr-sourcetrusted">
-        <td>Source Trusted Auth?</td>
-        <td><input type="checkbox" id="sourcetrusted" onchange="onSourceTrustedChange(); updateCommand()"></td>
-        <td>--sourcetrusted</td>
-        <td>false</td>
-      </tr>
-
-      <tr id="tr-sourceuser">
-        <td>Source User</td>
-        <td><input type="text" id="sourceuser" oninput="updateCommand()"></td>
-        <td>--sourceuser</td>
-        <td>[none]</td>
-      </tr>
-
-      <tr id="tr-sourcepassword">
-        <td>Source Password</td>
-        <td><input type="text" id="sourcepassword" oninput="updateCommand()"></td>
-        <td>--sourcepassword</td>
-        <td>[none]</td>
-      </tr>
-
-      <!-- sourcedatabase -->
-      <tr id="tr-sourcedatabase">
-        <td>Source Database</td>
-        <td><input type="text" id="sourcedatabase" oninput="updateCommand()"></td>
-        <td>--sourcedatabase</td>
-        <td>[none]</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!--  =================== SOURCE QUERY/TABLE SECTION  =================== -->
-<div class="section">
-  <h2>Source Query / Table</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Short Description</th>
-        <th>Value</th>
-        <th>Parameter</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- sourceschema -->
-      <tr id="tr-sourceschema">
-        <td>Source Schema</td>
-        <td><input type="text" id="sourceschema" oninput="updateCommand()"></td>
-        <td>--sourceschema</td>
-        <td>[none]</td>
-      </tr>
-
-      <!-- sourcetable -->
-      <tr id="tr-sourcetable">
-        <td>Source Table</td>
-        <td><input type="text" id="sourcetable" oninput="updateCommand()"></td>
-        <td>--sourcetable</td>
-        <td>[none]</td>
-      </tr>
-
-      <!-- query vs fileinput (one or none used) -->
-      <tr id="tr-query">
-        <td>SQL Query</td>
-        <td><input type="text" id="query" oninput="onQueryChange(); updateCommand()"></td>
-        <td>--query</td>
-        <td>[none]</td>
-      </tr>
-
-      <tr id="tr-fileinput">
-        <td>File Input</td>
-        <td><input type="text" id="fileinput" oninput="onFileInputChange(); updateCommand()"></td>
-        <td>--fileinput</td>
-        <td>[none]</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!--  =================== TARGET SECTION  =================== -->
-<div class="section">
-  <h2>Target Configuration</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Short Description</th>
-        <th>Value</th>
-        <th>Parameter</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- targetconnectiontype -->
-      <tr>
-        <td>Target Conn. Type</td>
-        <td>
-          <select id="targetconnectiontype" onchange="updateCommand()">
-            <option value="">-- choose --</option>
-            <option value="clickhousebulk">clickhousebulk</option>
-            <option value="duckdb">duckdb</option>
-            <option value="hanabulk">hanabulk</option>
-            <option value="msbulk">msbulk</option>
-            <option value="mysqlbulk">mysqlbulk</option>
-            <option value="nzbulk">nzbulk</option>
-            <option value="orabulk">orabulk</option>
-            <option value="oradirect">oradirect</option>
-            <option value="pgcopy">pgcopy</option>
-            <option value="pgsql">pgsql</option>
-            <option value="teradata">teradata</option>            
-          </select>
-        </td>
-        <td>--targetconnectiontype</td>
-        <td>[none]</td>
-      </tr>
-
-      <!-- targetconnectstring vs (targetserver, targetuser, targetpassword, targettrusted) -->
-      <tr id="tr-targetconnectstring">
-        <td>Target Connect String</td>
-        <td><input type="text" id="targetconnectstring" oninput="onTargetConnectstringChange(); updateCommand()"></td>
-        <td>--targetconnectstring</td>
-        <td>[none]</td>
-      </tr>
-
-      <tr id="tr-targetserver">
-        <td>Target Server</td>
-        <td><input type="text" id="targetserver" oninput="updateCommand()"></td>
-        <td>--targetserver</td>
-        <td>[none]</td>
-      </tr>
-
-      <tr id="tr-targettrusted">
-        <td>Target Trusted Auth?</td>
-        <td><input type="checkbox" id="targettrusted" onchange="onTargetTrustedChange(); updateCommand()"></td>
-        <td>--targettrusted</td>
-        <td>false</td>
-      </tr>
-
-      <tr id="tr-targetuser">
-        <td>Target User</td>
-        <td><input type="text" id="targetuser" oninput="updateCommand()"></td>
-        <td>--targetuser</td>
-        <td>[none]</td>
-      </tr>
-
-      <tr id="tr-targetpassword">
-        <td>Target Password</td>
-        <td><input type="text" id="targetpassword" oninput="updateCommand()"></td>
-        <td>--targetpassword</td>
-        <td>[none]</td>
-      </tr>
-
-      <!-- targetdatabase -->
-      <tr id="tr-targetdatabase">
-        <td>Target Database</td>
-        <td><input type="text" id="targetdatabase" oninput="updateCommand()"></td>
-        <td>--targetdatabase</td>
-        <td>[none]</td>
-      </tr>
-
-      <!-- targetschema -->
-      <tr>
-        <td>Target Schema</td>
-        <td><input type="text" id="targetschema" oninput="updateCommand()"></td>
-        <td>--targetschema</td>
-        <td>[none]</td>
-      </tr>
-
-      <!-- targettable -->
-      <tr>
-        <td>Target Table</td>
-        <td><input type="text" id="targettable" oninput="updateCommand()"></td>
-        <td>--targettable</td>
-        <td>[none]</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<!--  =================== ADVANCED / PARALLEL SECTION  =================== -->
-<div class="section">
-    <h2>Advanced / Parallel</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Short Description</th>
-                <th>Value</th>
-                <th>Parameter</th>
-                <th>Default</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- degree -->
-            <tr id="tr-degree">
-                <td>Parallel Degree</td>
-                <td><input type="number" id="degree" value="-2" min="-32" max="1024" oninput="updateCommand()"></td>
-                <td>--degree</td>
-                <td>-2</td>
-            </tr>
-
-            <!-- method -->
-            <tr>
-                <td>Method</td>
-                <td>
-                    <select id="method" onchange="onMethodChange(); updateCommand()">
-                        <option value="None">None</option>
-                        <option value="Ctid">Ctid (PostgreSQL Only)</option>
-                        <option value="DataDriven">DataDriven</option>
-                        <option value="Ntile">Ntile</option>
-                        <option value="NZDataSlice">NZDataSlice (Netezza Only)</option>
-                        <option value="Random">Random</option>
-                        <option value="RangeId">RangeId</option>
-                        <option value="Rowid">Rowid (Oracle Only)</option>
-                    </select>
-                </td>
-                <td>--method</td>
-                <td>None</td>
-            </tr>
-
-            <!-- distributeKeyColumn -->
-            <tr id="tr-distributeKeyColumn">
-                <td>Distribute Key Column</td>
-                <td><input type="text" id="distributeKeyColumn" oninput="updateCommand()"></td>
-                <td>--distributeKeyColumn</td>
-                <td>[none]</td>
-            </tr>
-
-            <!-- datadrivenquery -->
-            <tr id="tr-datadrivenquery">
-                <td>DataDriven Query (optionnal)</td>
-                <td><input type="text" id="datadrivenquery" oninput="updateCommand()"></td>
-                <td>--datadrivenquery</td>
-                <td>[none]</td>
-            </tr>
-
-            <!-- loadmode -->
-            <tr>
-                <td>Load Mode</td>
-                <td>
-                    <select id="loadmode" onchange="updateCommand()">
-                        <option value="Append">Append</option>
-                        <option value="Truncate">Truncate</option>
-                        <!-- <option value="Replace">Replace</option> -->
-                    </select>
-                </td>
-                <td>--loadmode</td>
-                <td>Append</td>
-            </tr>
-
-            <!-- mapmethod -->
-            <tr>
-                <td>Column Map Method</td>
-                <td>
-                    <select id="mapmethod" onchange="updateCommand()">
-                        <option value="Position">Position</option>
-                        <option value="Name">Name</option>
-                    </select>
-                </td>
-                <td>--mapmethod</td>
-                <td>Position</td>
-            </tr>
-
-            <!-- batchsize -->
-            <tr>
-                <td>Batch Size</td>
-                <td><input type="number" id="batchsize" value="1048576" oninput="updateCommand()"></td>
-                <td>--batchsize</td>
-                <td>1048576</td>
-            </tr>
-
-            <!-- useworktables -->
-            <tr>
-                <td>Use Work Tables?</td>
-                <td><input type="checkbox" id="useworktables" onchange="updateCommand()"></td>
-                <td>--useworktables</td>
-                <td>false</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!--  =================== LOGGING SECTION  =================== -->
+    <!--  =================== SOURCE SECTION  =================== -->
     <div class="section">
-        <h2>Logging</h2>
+        <h2>Source Configuration</h2>
         <table>
             <thead>
                 <tr>
@@ -385,28 +33,101 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- runid -->
+                <!-- sourceconnectiontype -->
                 <tr>
-                    <td>Run ID</td>
-                    <td><input type="text" id="runid" oninput="updateCommand()"></td>
-                    <td>--runid</td>
+                    <td>Source Conn. Type</td>
+                    <td>
+                        <select id="sourceconnectiontype" onchange="onSourceTypeChange(); updateCommand()">
+                            <option value="">-- choose --</option>
+                            <option value="clickhouse">clickhouse</option>
+                            <option value="duckdb">duckdb</option>
+                            <option value="duckdbstream">duckdbstream</option>
+                            <option value="hana">hana</option>
+                            <option value="mssql">mssql</option>
+                            <option value="msoledbsql">msoledbsql</option>
+                            <option value="mysql">mysql</option>
+                            <option value="nzoledb">nzoledb</option>
+                            <option value="nzsql">nzsql</option>
+                            <option value="odbc">odbc</option>
+                            <option value="oledb">oledb</option>
+                            <option value="oraodp">oraodp</option>
+                            <option value="pgcopy">pgcopy</option>
+                            <option value="pgsql">pgsql</option>
+                            <option value="teradata">teradata</option>
+                        </select>
+                    </td>
+                    <td>--sourceconnectiontype</td>
                     <td>[none]</td>
                 </tr>
 
-                <!-- settingsfile -->
-                <tr>
-                    <td>Settings File</td>
-                    <td><input type="text" id="settingsfile" oninput="updateCommand()"></td>
-                    <td>--settingsfile</td>
+                <!-- sourceconnectstring vs (sourcedsn, sourceprovider, sourceserver, sourceuser, sourcepassword, sourcetrusted) -->
+                <tr id="tr-sourceconnectstring">
+                    <td>Source Connect String</td>
+                    <td><input type="text" id="sourceconnectstring" oninput="onSourceConnectstringChange(); updateCommand()"></td>
+                    <td>--sourceconnectstring</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- sourcedsn (only if not using sourceconnectstring) -->
+                <tr id="tr-sourcedsn">
+                    <td>ODBC DSN</td>
+                    <td><input type="text" id="sourcedsn" oninput="updateCommand()"></td>
+                    <td>--sourcedsn</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- sourceprovider (only if not using sourceconnectstring nor sourcedsn) -->
+                <tr id="tr-sourceprovider">
+                    <td>OleDB Provider</td>
+                    <td><input type="text" id="sourceprovider" oninput="updateCommand()"></td>
+                    <td>--sourceprovider</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- sourceserver (only if not using sourceconnectstring nor sourcedsn) -->
+                <tr id="tr-sourceserver">
+                    <td>Source Server</td>
+                    <td><input type="text" id="sourceserver" oninput="updateCommand()"></td>
+                    <td>--sourceserver</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- sourcetrusted vs (sourceuser, sourcepassword) -->
+                <tr id="tr-sourcetrusted">
+                    <td>Source Trusted Auth?</td>
+                    <td><input type="checkbox" id="sourcetrusted" onchange="onSourceTrustedChange(); updateCommand()"></td>
+                    <td>--sourcetrusted</td>
+                    <td>false</td>
+                </tr>
+
+                <tr id="tr-sourceuser">
+                    <td>Source User</td>
+                    <td><input type="text" id="sourceuser" oninput="updateCommand()"></td>
+                    <td>--sourceuser</td>
+                    <td>[none]</td>
+                </tr>
+
+                <tr id="tr-sourcepassword">
+                    <td>Source Password</td>
+                    <td><input type="text" id="sourcepassword" oninput="updateCommand()"></td>
+                    <td>--sourcepassword</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- sourcedatabase -->
+                <tr id="tr-sourcedatabase">
+                    <td>Source Database</td>
+                    <td><input type="text" id="sourcedatabase" oninput="updateCommand()"></td>
+                    <td>--sourcedatabase</td>
                     <td>[none]</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <!--  =================== LICENCE SECTION  =================== -->
+    <!--  =================== SOURCE QUERY/TABLE SECTION  =================== -->
     <div class="section">
-        <h2>Licence</h2>
+        <h2>Source Query / Table</h2>
         <table>
             <thead>
                 <tr>
@@ -417,24 +138,303 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- licence -->
-                <tr>
-                    <td>Licence</td>
-                    <td><input type="text" id="licence" oninput="updateCommand()"></td>
-                    <td>--licence</td>
-                    <td>[none] if not provided, will use FastTransfer.lic</td>
+                <!-- sourceschema -->
+                <tr id="tr-sourceschema">
+                    <td>Source Schema</td>
+                    <td><input type="text" id="sourceschema" oninput="updateCommand()"></td>
+                    <td>--sourceschema</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- sourcetable -->
+                <tr id="tr-sourcetable">
+                    <td>Source Table</td>
+                    <td><input type="text" id="sourcetable" oninput="updateCommand()"></td>
+                    <td>--sourcetable</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- query vs fileinput (one or none used) -->
+                <tr id="tr-query">
+                    <td>SQL Query</td>
+                    <td><input type="text" id="query" oninput="onQueryChange(); updateCommand()"></td>
+                    <td>--query</td>
+                    <td>[none]</td>
+                </tr>
+
+                <tr id="tr-fileinput">
+                    <td>File Input</td>
+                    <td><input type="text" id="fileinput" oninput="onFileInputChange(); updateCommand()"></td>
+                    <td>--fileinput</td>
+                    <td>[none]</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
+    <!--  =================== TARGET SECTION  =================== -->
+    <div class="section">
+        <h2>Target Configuration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Short Description</th>
+                    <th>Value</th>
+                    <th>Parameter</th>
+                    <th>Default</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- targetconnectiontype -->
+                <tr>
+                    <td>Target Conn. Type</td>
+                    <td>
+                        <select id="targetconnectiontype" onchange="updateCommand()">
+                            <option value="">-- choose --</option>
+                            <option value="clickhousebulk">clickhousebulk</option>
+                            <option value="duckdb">duckdb</option>
+                            <option value="hanabulk">hanabulk</option>
+                            <option value="msbulk">msbulk</option>
+                            <option value="mysqlbulk">mysqlbulk</option>
+                            <option value="nzbulk">nzbulk</option>
+                            <option value="orabulk">orabulk</option>
+                            <option value="oradirect">oradirect</option>
+                            <option value="pgcopy">pgcopy</option>
+                            <option value="pgsql">pgsql</option>
+                            <option value="teradata">teradata</option>
+                        </select>
+                    </td>
+                    <td>--targetconnectiontype</td>
+                    <td>[none]</td>
+                </tr>
 
-    <!--  =================== COMMAND OUTPUT  =================== -->
-    <button type="button" onclick="copyCommand()">Copy Command</button>
-    <button type="button" onclick="updateCommand()">Refresh</button>
+                <!-- targetconnectstring vs (targetserver, targetuser, targetpassword, targettrusted) -->
+                <tr id="tr-targetconnectstring">
+                    <td>Target Connect String</td>
+                    <td><input type="text" id="targetconnectstring" oninput="onTargetConnectstringChange(); updateCommand()"></td>
+                    <td>--targetconnectstring</td>
+                    <td>[none]</td>
+                </tr>
+
+                <tr id="tr-targetserver">
+                    <td>Target Server</td>
+                    <td><input type="text" id="targetserver" oninput="updateCommand()"></td>
+                    <td>--targetserver</td>
+                    <td>[none]</td>
+                </tr>
+
+                <tr id="tr-targettrusted">
+                    <td>Target Trusted Auth?</td>
+                    <td><input type="checkbox" id="targettrusted" onchange="onTargetTrustedChange(); updateCommand()"></td>
+                    <td>--targettrusted</td>
+                    <td>false</td>
+                </tr>
+
+                <tr id="tr-targetuser">
+                    <td>Target User</td>
+                    <td><input type="text" id="targetuser" oninput="updateCommand()"></td>
+                    <td>--targetuser</td>
+                    <td>[none]</td>
+                </tr>
+
+                <tr id="tr-targetpassword">
+                    <td>Target Password</td>
+                    <td><input type="text" id="targetpassword" oninput="updateCommand()"></td>
+                    <td>--targetpassword</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- targetdatabase -->
+                <tr id="tr-targetdatabase">
+                    <td>Target Database</td>
+                    <td><input type="text" id="targetdatabase" oninput="updateCommand()"></td>
+                    <td>--targetdatabase</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- targetschema -->
+                <tr>
+                    <td>Target Schema</td>
+                    <td><input type="text" id="targetschema" oninput="updateCommand()"></td>
+                    <td>--targetschema</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- targettable -->
+                <tr>
+                    <td>Target Table</td>
+                    <td><input type="text" id="targettable" oninput="updateCommand()"></td>
+                    <td>--targettable</td>
+                    <td>[none]</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--  =================== ADVANCED / PARALLEL SECTION  =================== -->
+    <div class="section">
+        <h2>Advanced / Parallel</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Short Description</th>
+                    <th>Value</th>
+                    <th>Parameter</th>
+                    <th>Default</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- degree -->
+                <tr id="tr-degree">
+                    <td>Parallel Degree</td>
+                    <td><input type="number" id="degree" value="-2" min="-32" max="1024" oninput="updateCommand()"></td>
+                    <td>--degree</td>
+                    <td>-2</td>
+                </tr>
+
+                <!-- method -->
+                <tr>
+                    <td>Method</td>
+                    <td>
+                        <select id="method" onchange="onMethodChange(); updateCommand()">
+                            <option value="None">None</option>
+                            <option value="Ctid">Ctid (PostgreSQL Only)</option>
+                            <option value="DataDriven">DataDriven</option>
+                            <option value="Ntile">Ntile</option>
+                            <option value="NZDataSlice">NZDataSlice (Netezza Only)</option>
+                            <option value="Random">Random</option>
+                            <option value="RangeId">RangeId</option>
+                            <option value="Rowid">Rowid (Oracle Only)</option>
+                        </select>
+                    </td>
+                    <td>--method</td>
+                    <td>None</td>
+                </tr>
+
+                <!-- distributekeycolumn -->
+                <tr id="tr-distributekeycolumn">
+                    <td>Distribute Key Column</td>
+                    <td><input type="text" id="distributekeycolumn" oninput="updateCommand()"></td>
+                    <td>--distributekeycolumn</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- datadrivenquery -->
+                <tr id="tr-datadrivenquery">
+                    <td>DataDriven Query (optionnal)</td>
+                    <td><input type="text" id="datadrivenquery" oninput="updateCommand()"></td>
+                    <td>--datadrivenquery</td>
+                    <td>[none]</td>
+                </tr>
+
+                <!-- loadmode -->
+                <tr>
+                    <td>Load Mode</td>
+                    <td>
+                        <select id="loadmode" onchange="updateCommand()">
+                            <option value="Append">Append</option>
+                            <option value="Truncate">Truncate</option>
+                            <!-- <option value="Replace">Replace</option> -->
+                        </select>
+                    </td>
+                    <td>--loadmode</td>
+                    <td>Append</td>
+                </tr>
+
+                <!-- mapmethod -->
+                <tr>
+                    <td>Column Map Method</td>
+                    <td>
+                        <select id="mapmethod" onchange="updateCommand()">
+                            <option value="Position">Position</option>
+                            <option value="Name">Name</option>
+                        </select>
+                    </td>
+                    <td>--mapmethod</td>
+                    <td>Position</td>
+                </tr>
+
+                <!-- batchsize -->
+                <tr>
+                    <td>Batch Size</td>
+                    <td><input type="number" id="batchsize" value="1048576" oninput="updateCommand()"></td>
+                    <td>--batchsize</td>
+                    <td>1048576</td>
+                </tr>
+
+                <!-- useworktables -->
+                <tr>
+                    <td>Use Work Tables?</td>
+                    <td><input type="checkbox" id="useworktables" onchange="updateCommand()"></td>
+                    <td>--useworktables</td>
+                    <td>false</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!--  =================== LOGGING SECTION  =================== -->
+        <div class="section">
+            <h2>Logging</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Short Description</th>
+                        <th>Value</th>
+                        <th>Parameter</th>
+                        <th>Default</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- runid -->
+                    <tr>
+                        <td>Run ID</td>
+                        <td><input type="text" id="runid" oninput="updateCommand()"></td>
+                        <td>--runid</td>
+                        <td>[none]</td>
+                    </tr>
+
+                    <!-- settingsfile -->
+                    <tr>
+                        <td>Settings File</td>
+                        <td><input type="text" id="settingsfile" oninput="updateCommand()"></td>
+                        <td>--settingsfile</td>
+                        <td>[none]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--  =================== LICENCE SECTION  =================== -->
+        <div class="section">
+            <h2>Licence</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Short Description</th>
+                        <th>Value</th>
+                        <th>Parameter</th>
+                        <th>Default</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- licence -->
+                    <tr>
+                        <td>Licence</td>
+                        <td><input type="text" id="licence" oninput="updateCommand()"></td>
+                        <td>--licence</td>
+                        <td>[none] if not provided, will use FastTransfer.lic</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!--  =================== COMMAND OUTPUT  =================== -->
+        <button type="button" onclick="copyCommand()">Copy Command</button>
+        <button type="button" onclick="updateCommand()">Refresh</button>
 <pre id="result"></pre>
 
-    <script>
+        <script>
 /* --- Show/hide logic for partial group constraints, etc. --- */
 
 // If sourceconnectstring is used => hide DSN/provider/server/trusted
@@ -521,15 +521,15 @@ function onTargetTrustedChange() {
   }
 }
 
-// If method=DataDriven => show datadrivenquery, if method=Random => show distributeKeyColumn, etc.
+// If method=DataDriven => show datadrivenquery, if method=Random => show distributekeycolumn, etc.
 function onMethodChange() {
   const method = document.getElementById('method').value;
   // if method = None ==> cleanup parallel options
   if (method === 'None') {
 
-    // Hide distributeKeyColumn
-    document.getElementById('distributeKeyColumn').value = "";
-    document.getElementById('tr-distributeKeyColumn').style.display = 'none';
+    // Hide distributekeycolumn
+    document.getElementById('distributekeycolumn').value = "";
+    document.getElementById('tr-distributekeycolumn').style.display = 'none';
 
     // Hide datadrivenquery
     document.getElementById('datadrivenquery').value = "";
@@ -550,14 +550,14 @@ function onMethodChange() {
         document.getElementById('datadrivenquery').value = "";
         document.getElementById('tr-datadrivenquery').style.display = 'none';
     }
-    // Example: if method=Random => you might want to highlight distributeKeyColumn
+    // Example: if method=Random => you might want to highlight distributekeycolumn
     // We'll keep it always visible except for demonstration below:
     if (method === 'Ctid' || method === 'Rowid' || method === 'NZDataSlice') {
-        // maybe hide distributeKeyColumn
-        document.getElementById('distributeKeyColumn').value = "";
-        document.getElementById('tr-distributeKeyColumn').style.display = 'none';
+        // maybe hide distributekeycolumn
+        document.getElementById('distributekeycolumn').value = "";
+        document.getElementById('tr-distributekeycolumn').style.display = 'none';
     } else {
-        document.getElementById('tr-distributeKeyColumn').style.display = 'table-row';
+        document.getElementById('tr-distributekeycolumn').style.display = 'table-row';
     }
    }
 
@@ -699,11 +699,11 @@ function updateCommand() {
     args.push(` --method "${method}"`);
     }
 
-  // distributeKeyColumn (only if row is visible, or always?)
-  if (document.getElementById('tr-distributeKeyColumn').style.display !== 'none') {
-    const dk = document.getElementById('distributeKeyColumn').value.trim();
+  // distributekeycolumn (only if row is visible, or always?)
+  if (document.getElementById('tr-distributekeycolumn').style.display !== 'none') {
+    const dk = document.getElementById('distributekeycolumn').value.trim();
     if (dk) {
-      args.push(` --distributeKeyColumn "${dk}"`);
+      args.push(` --distributekeycolumn "${dk}"`);
     }
   }
 
@@ -779,8 +779,8 @@ function copyCommand() {
 function initDisplayStates() {
   // Hide optional rows as needed
   document.getElementById('tr-datadrivenquery').style.display = 'none';
-  // By default, hide distributeKeyColumn
-  document.getElementById('tr-distributeKeyColumn').style.display = 'none';
+  // By default, hide distributekeycolumn
+  document.getElementById('tr-distributekeycolumn').style.display = 'none';
   // By default hide degree
   document.getElementById('tr-degree').style.display = 'none';
   document.getElementById('degree').value = "";
@@ -815,7 +815,7 @@ function onSourceTypeChange(){
 
 initDisplayStates();
 updateCommand();
-    </script>
+        </script>
 
 </body>
 </html>
