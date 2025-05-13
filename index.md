@@ -132,9 +132,15 @@ Teradata | ✅ | ✅ |
 
 ![LogParameters](diagram/LogParameters.svg)
 
+**LicenceParameters:**
+
+![LogParameters](diagram/LicenceParameters.svg)
+
 
 
 ### Options explained
+
+**WARNING : WE STRONG ADVISE TO USE LONG PARAMETERS**
 
 - `-?`, `--help`  
   Show help information.
@@ -246,13 +252,13 @@ Teradata | ✅ | ✅ |
     Method for parallelism (if needed).
     Allowed Values: 
 
-    - `DataDriven` Use the distinct value of the distributeKeyColumn (which can be an expression) to distribute data
-    - `Ctid` Recommanded for postgreSQL. use the Ctid pseudo column (for pgsql and pgcopy source only)
+    - `DataDriven` Use the distinct value of the distributeKeyColumn (which can be a column or an expression) to distribute data
+    - `Ctid` Recommanded and exclusive for postgreSQL and postgreSQL compatible. Use the Ctid pseudo column (for pgsql and pgcopy source only)
     - `Random` Use a modulo on the distributeKeyColumn to distribute data
     - `Rowid` For Oracle sources only : use rowid slices
     - `RangeId` Use a numeric range to distribute data (useful with an identity column or sequence without gaps. The column must be numerical)
     - `Ntile` Use the ntile function to distribute data evenly data can be numerical, date, datetime or string
-    - `NZDataSlice` : Netezza only. Use the data slices to distribute data retrieval
+    - `NZDataSlice` : Netezza source only. Use the data slices to distribute data retrieval
     - `None` No parallelism
     
     Default Value: `None`. If you want to use a parallel export/import use other than None. Try to use Parallelism only if you have a large amount of data to transfer (more than 1M cells).
@@ -268,10 +274,12 @@ Teradata | ✅ | ✅ |
     * `n < 0` negative values will be used to adapt the degree of parallelism to the number of available CPUs.
     eg : -2 will use half the cpus on the machine where FastTransfer is launched 
     
-    Default Value: `1`.
+    Nota : whatever the degree, if the method is `None`, the extraction will remain serial
+    
+    Default Value: `-2`.
   
   - `Q`, `--datadrivenquery`  
-    Override query to be used to get the values for the DataDriven method. You can avoid select distinct of the distributeKeyColumn on large table, if you have de reference table that contains all the values.
+    Override query to be used to get the values list for the `DataDriven` method. You can avoid select distinct of the distributeKeyColumn on large table, if you have de reference table that contains all the values.
 
   - `-L`, `--loadmode <mode>`  
     Load mode of the data into the target. 
@@ -391,14 +399,16 @@ You can start from the default file and modify it to suit your needs.
 ```
 ## Wrappers
 FastTransfer is also available using wrappers.
-One fully fonctionnal and supported wrapper is available for TSQL using a CLR procedure that avoid using xp_cmdshell.
+One fully fonctionnal and supported wrapper is available for TSQL using a CLR procedure that avoid using xp_cmdshell or for PostgreSQL. You can call FastTransfer throught the database (you need to copy the FastTransfer on the host where the instance/cluster reside)
 
-- [CLR/TSQL Wrapper](https://github.com/aetperf/FastWrappers-TSQL)
+- [FastTransfer in MSSQL using a CLR/TSQL Wrapper](https://github.com/aetperf/FastWrappers-TSQL)
+- [FastTransfer in PostgreSQL using a Python Wrapper](https://github.com/aetperf/FastWrappers-PGSQL)
+- [FastTransfer in an AWS Lambda using Docker](https://github.com/aetperf/FastTransfer-AWS-Lambda)
 
 ## License
 
-Commercial License. Contact us at [sales@architecture-performance.fr](mailto:sales@architecture-performance.fr) for more information.
+Commercial License. You can [buy FastTransfer online](https://www.arpe.io/product/fasttransfer/) or contact us at [sales@arpe.io](mailto:sales@arpe.io) for more information.
 
-[CLUF](legal/CONTRAT%20DE%20LICENCE%20UTILISATEUR%20FINAL.pdf)
+[CLUF](legal/CONTRAT%20DE%20LICENCE%20UTILISATEUR%20FINAL.pdf) and [EULA]
 
 
