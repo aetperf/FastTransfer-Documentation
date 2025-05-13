@@ -409,6 +409,6 @@ One fully fonctionnal and supported wrapper is available for TSQL using a CLR pr
 
 Commercial License. You can [buy FastTransfer online](https://www.arpe.io/product/fasttransfer/) or contact us at [sales@arpe.io](mailto:sales@arpe.io) for more information.
 
-[CLUF](legal/CONTRAT%20DE%20LICENCE%20UTILISATEUR%20FINAL.pdf) and [EULA]
+[CLUF *(FR)*](legal/CONTRAT%20DE%20LICENCE%20UTILISATEUR%20FINAL.pdf) and [EULA *(EN)*](https://www.arpe.io/end-user-licence-agreement)
 
 
