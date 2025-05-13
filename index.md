@@ -73,7 +73,9 @@ Teradata | ✅ | ✅ |
 - target table must have columns with compatibles datatypes with the source and aligned if mapmethod *position* is used.
 
 ## Gui Wizard to generate command line
-[FastTransfer Wizard](FastTransfer_Wizard.html)
+
+
+<button type="button">[FastTransfer Wizard](FastTransfer_Wizard.html)</button>
 
 ## Syntax:
 
@@ -363,7 +365,7 @@ Teradata | ✅ | ✅ |
 
 for more examples see [examples](./samples/samples.md)
 
-## Installation
+# Installation
 
 Download the latest version from the link provided by Arpe.io and extract the files to a folder on your machine.
 That's it! You are ready to use FastTransfer.
@@ -397,7 +399,7 @@ You can start from the default file and modify it to suit your needs.
     ],
     "MinimumLevel": "Debug",
 ```
-## Wrappers
+# Wrappers
 FastTransfer is also available using wrappers.
 One fully fonctionnal and supported wrapper is available for TSQL using a CLR procedure that avoid using xp_cmdshell or for PostgreSQL. You can call FastTransfer throught the database (you need to copy the FastTransfer on the host where the instance/cluster reside)
 
@@ -405,7 +407,7 @@ One fully fonctionnal and supported wrapper is available for TSQL using a CLR pr
 - [FastTransfer in PostgreSQL using a Python Wrapper](https://github.com/aetperf/FastWrappers-PGSQL)
 - [FastTransfer in an AWS Lambda using Docker](https://github.com/aetperf/FastTransfer-AWS-Lambda)
 
-## License
+# License
 
 Commercial License. You can [buy FastTransfer online](https://www.arpe.io/product/fasttransfer/) or contact us at [sales@arpe.io](mailto:sales@arpe.io) for more information.
 
