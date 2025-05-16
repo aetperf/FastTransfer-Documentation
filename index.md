@@ -134,9 +134,9 @@ Teradata | ✅ | ✅ |
 
 ![LogParameters](diagram/LogParameters.svg)
 
-**LicenceParameters:**
+**LicenseParameters:**
 
-![LogParameters](diagram/LicenceParameters.svg)
+![LogParameters](diagram/LicenseParameters.svg)
 
 
 
@@ -311,7 +311,8 @@ Teradata | ✅ | ✅ |
   - `O` ,`--settingsfile`
     Custom Settings file for logging and other settings. Default is `FastTransfer__settings.json` in the same folder as the executable.
 
-
+  - `--license`  
+    License file. Default is `FastTransfer.lic` in the same folder as the executable. You can provide another filepath or an url to get the license informations
 
 
 ## Examples

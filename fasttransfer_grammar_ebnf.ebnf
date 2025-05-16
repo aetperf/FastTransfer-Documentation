@@ -14,7 +14,7 @@ FastTransferOptions ::=
     (|ParallelParameters)
     (|MappingParameters)
     (|LogParameters)
-    (|LicenceParameters)
+    (|LicenseParameters)
 
 
 SourceConnectionType ::=
@@ -90,5 +90,5 @@ LogParameters ::=
     (|"--runid" RunId)
     (|"--settingsfile" SettingsFile)
 
-LicenceParameters ::=
-"--licence" (licenceFile|licenceUrl)
+LicenseParameters ::=
+"--license" (licenseFile|licenseUrl)
