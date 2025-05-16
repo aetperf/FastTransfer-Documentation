@@ -751,10 +751,10 @@ function updateCommand() {
     args.push(` --settingsfile "${sfile}"`);
   }
 
-  // licence
-  const licence = document.getElementById('licence').value.trim();
-  if (licence) {
-    args.push(` --licence "${licence}"`);
+  // license
+  const license = document.getElementById('license').value.trim();
+  if (license) {
+    args.push(` --license "${license}"`);
   }
 
   // Build final command
