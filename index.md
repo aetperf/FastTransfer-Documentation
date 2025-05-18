@@ -5,6 +5,26 @@ FastTransfer is a command-line interface tool designed for efficient data transf
 
 ![FastTransfer](./img/FastTransfer.jpg)
 
+## Table of contents
+
+- [FastTransfer CLI](#fasttransfer-cli)
+- [Supported Sources](#supported-sources)
+- [Supported Targets](#supported-targets)
+- [Supported OS](#supported-os)
+  - [Linux](#linux)
+  - [Windows](#windows)
+- [Limitations and connections](#limitations-and-connections)
+- [Gui Wizard to generate command line](#gui-wizard-to-generate-command-line)
+- [Syntax](#syntax)
+- [Options explained](#options-explained)
+- [Examples](#examples)
+- [Installation](#installation)
+- [Configuration and settings for logging](#configuration-and-settings-for-logging)
+- [Wrappers](#wrappers)
+- [License](#license)
+
+
+
 
 ## Supported Sources
 
@@ -78,6 +98,19 @@ Teradata | ✅ | ✅ |
 <button type="button">[FastTransfer Wizard](FastTransfer_Wizard.html)</button>
 
 ## Syntax:
+
+- [FastTransferCommand](#fasttransfercommand)
+- [FastTransferOptions](#fasttransferoptions)
+- [SourceConnectionType](#sourceconnectiontype)
+- [SourceConnectionParameters](#sourceconnectionparameters)
+- [SourceInfos](#sourceinfos)
+- [TargetConnectionType](#targetconnectiontype)
+- [TargetConnectionParameters](#targetconnectionparameters)
+- [TargetInfos](#targetinfos)
+- [ParallelParameters](#parallelparameters)
+- [MappingParameters](#mappingparameters)
+- [LogParameters](#logparameters)
+- [LicenseParameters](#licenseparameters)
 
 ![Syntax](diagram/Syntax.svg)
 
