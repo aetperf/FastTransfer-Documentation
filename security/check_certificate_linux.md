@@ -1,6 +1,16 @@
 ## Verifying FastTransfer Linux Binary Integrity and Authenticity
 
-The zip file contains 3 files:
+**TL;DR**
+```bash
+cd FastTransfer-linux-x64  
+sha256sum -c FastTransfer.sha256sum.txt  
+gpg --keyserver keys.openpgp.org --recv-keys 37007D091BF7DCC74D208A1F869511C7130465C8  
+gpg --verify FastTransfer.sha256sum.txt.asc FastTransfer.sha256sum.txt  
+```
+
+---
+
+The unzipped directory contains 3 files:
 - `FastTransfer`
 - `FastTransfer.sha256sum.txt`
 - `FastTransfer.sha256sum.txt.asc`
@@ -19,15 +29,17 @@ cat FastTransfer.sha256sum.txt
 
 	D0E9B29B447DA1E8AA946D0FCFE31A8E60D8411C5AAD791439D3356E07ADE907  FastTransfer%    
 
-Or you can verify its integrity using a single command:
+Or you can verify its integrity using a single command, ensuring that the SHA256 checksum of the `FastTransfer` file matches the one provided in the `FastTransfer.sha256sum.txt` file:
+
 ```bash
 sha256sum -c FastTransfer.sha256sum.txt
 ```
 
 	FastTransfer: OK
 
-### Authenticity check
 
+### Authenticity check
+``
 To verify the authenticity of `FastTransfer.sha256sum.txt`, check the signature of `FastTransfer.sha256sum.txt.asc` by following the steps below.
 
 #### Download the FastTransfer signing key:
