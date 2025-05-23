@@ -401,8 +401,13 @@ for more examples see [examples](./samples/samples.md)
 
 # Installation
 
-Download the latest version from the link provided by Arpe.io and extract the files to a folder on your machine.
-That's it! You are ready to use FastTransfer.
+Download the latest version from the link provided by Arpe.io and extract the files to a directory on your machine.
+ For Linux user run a `chmod +x FastTransfer` command.
+
+For the trial, that's it! You are ready to use FastTransfer.
+
+**For other edition than trial you will need a valid license.** By default FastTransfer will try to find a *FastTransfer.lic* file in the same directory. You can also provide another path or an url in your organisation where you store/share the license file by using the `--license` parameter.
+
 
 ## Configuration and settings for logging
 
